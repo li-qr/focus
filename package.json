@@ -14,7 +14,40 @@
 	],
 	"main": "./extension.js",
 	"contributes": {
-		"commands": [
+		"configuration":[
+			{
+				"title": "Focus configuration",
+				"properties": {
+					"focus.opacity":{
+						"type":"string",
+						"default":"0.7",
+						"pattern": "^0\\.\\d{1}$",
+						"description": "Opacity of the out of focus lines"
+					},
+					"focus.highlightRange":{
+						"type":"string",
+						"default":"fixed",
+						"enum": [
+							"line",
+							"block",
+							"indent",
+							"fixed"
+						],
+						"description": "Highlight range",
+						"markdownEnumDescriptions": [
+							"Only highlight current line",
+							"Highlight code block with token",
+							"Highlight lines by same indent with current line",
+							"Fixed highlight `#focus.highlightLines#` lines"
+						]
+					},
+					"focus.highlightLines":{
+						"type":"integer",
+						"default":5,
+						"markdownDescription":"When `#focus.highlightRange#` set to *fixed* ,how many lines will be highlight."
+					}
+				}
+			}
 		]
 	},
 	"scripts": {

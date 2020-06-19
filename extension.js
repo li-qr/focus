@@ -1,6 +1,10 @@
 const vscode = require('vscode');
 
 
+const CONF_OPACITY = "focus.opacity";
+const CONF_HIGHLIGHT_RANGE = "focus.highlightRange";
+const CONF_HIGHLIGHT_LINES = "focus.highlightLines";
+
 function activate(context) {
 
 	let baseDecoration = vscode.window.createTextEditorDecorationType({
