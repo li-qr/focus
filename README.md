@@ -17,7 +17,7 @@ Highlight code lines/code blcok what you are focus on.
 ![Usage](images/usage01.png)
 
 
-![Usage](images/usage02.gif)
+![Usage](images/usage02.png)
 
 
 ## Configuration
