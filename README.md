@@ -1,65 +1,50 @@
-# focus README
+# Focus
 
-This is the README for your extension "focus". After writing up a brief description, we recommend including the following sections.
+Highlight code lines/code blcok what you are focus on.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+* Highlight current line.
+* Highlight fixed configuration numbers of lines.
+* Highlight lines by indent.
+* Highlight code block.
 
-For example if there is an image subfolder under your extension project workspace:
+## Usages
 
-\!\[feature X\]\(images/feature-x.png\)
+* Just install it.
+* We provide commands and statusbar button that help you quickly change level.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+![Usage](images/usage01.png)
 
-## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+![Usage](images/usage02.gif)
 
-## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## Configuration
 
-For example:
+Set the level by json or UI:
 
-This extension contributes the following settings:
+``` json
+"focus.highlightRange":"line"   //Highlight current line
+"focus.highlightRange":"block"  //Highlight code block which range by *{* and *}*
+"focus.highlightRange":"indent" //Highlight lines by indent
+"focus.highlightRange":"fixed"  //Highlight line counts by configuration
+```
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+When the level set to *fixed*,configurate how many line to highlight:
 
-## Known Issues
+``` json
+"focus.highlightLines":5
+```
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Configurate opacity:
 
-## Release Notes
+``` json
+"focus.opacity":0.7 //number between (0,1)
+```
 
-Users appreciate release notes as you update your extension.
+## Issues
+Submit the [issues](https://github.com/mzzw/focus/issues) if you find any bug or have any suggestion.
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+## Contribution
+Fork the [repo](https://github.com/mzzw/focus) and submit pull requests.

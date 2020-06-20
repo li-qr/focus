@@ -1,69 +1,116 @@
 {
-	"name": "focus",
-	"displayName": "Focus",
-	"description": "focus",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.46.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"*"
-	],
-	"main": "./extension.js",
-	"contributes": {
-		"configuration":[
-			{
-				"title": "Focus configuration",
-				"properties": {
-					"focus.opacity":{
-						"type":"string",
-						"default":"0.7",
-						"pattern": "^0\\.\\d{1}$",
-						"description": "Opacity of the out of focus lines"
-					},
-					"focus.highlightRange":{
-						"type":"string",
-						"default":"fixed",
-						"enum": [
-							"line",
-							"block",
-							"indent",
-							"fixed"
-						],
-						"description": "Highlight range",
-						"markdownEnumDescriptions": [
-							"Only highlight current line",
-							"Highlight code block with token",
-							"Highlight lines by same indent with current line",
-							"Fixed highlight `#focus.highlightLines#` lines"
-						]
-					},
-					"focus.highlightLines":{
-						"type":"integer",
-						"default":5,
-						"markdownDescription":"When `#focus.highlightRange#` set to *fixed* ,how many lines will be highlight."
-					}
-				}
-			}
-		]
-	},
-	"scripts": {
-		"lint": "eslint .",
-		"pretest": "npm run lint",
-		"test": "node ./test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/vscode": "^1.46.0",
-		"@types/glob": "^7.1.1",
-		"@types/mocha": "^7.0.2",
-		"@types/node": "^13.11.0",
-		"eslint": "^6.8.0",
-		"glob": "^7.1.6",
-		"mocha": "^7.1.2",
-		"typescript": "^3.8.3",
-		"vscode-test": "^1.3.0"
-	}
+    "name": "focus",
+    "displayName": "Focus",
+    "description": "Help you focus the code.Highlight the lines/code block/indent you are editing.",
+    "version": "0.1.0",
+    "publisher": "mzzw",
+    "icon":"images/logo.png",
+    "engines": {
+        "vscode": "^1.35.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Other"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "keywords": [
+        "javascript",
+        "python",
+        "java",
+        "c/c++",
+        "multi-root ready"
+    ],
+    "bugs": {
+        "url":"https://github.com/mzzw/focus/issues",
+        "email": "lee@leezw.net"
+    },
+    "homepage": "https://github.com/mzzw/focus/blob/master/README.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mzzw/focus.git"
+    },
+    "main": "./extension.js",
+    "contributes": {
+        "commands":[
+            {
+                "command": "focus.swtichToLineLevel",
+                "title": "Focus: Switch To Line Level"
+            },
+            {
+                "command": "focus.switchToBlockLevel",
+                "title": "Focus: Switch To Block Level"
+            },
+            {
+                "command": "focus.switchToIndentLevel",
+                "title": "Focus: Switch To Indent Level"
+            },
+            {
+                "command": "focus.switchToFixedLevel",
+                "title": "Focus: Switch To Fixed Level"
+            },
+            {
+                "command": "focus.toggleLevel",
+                "title": "Focus: Toggle Level"
+            }
+        ],
+        "keybindings":[
+            {
+                "command": "focus.toggleLevel",
+                "key": "ctrl+alt+u"
+            }
+        ],
+        "configuration":[
+            {
+                "title": "Focus configuration",
+                "properties": {
+                    "focus.opacity":{
+                        "type":"string",
+                        "default":"0.7",
+                        "pattern": "^0\\.\\d{1}$",
+                        "description": "Opacity of the out of focus lines"
+                    },
+                    "focus.highlightRange":{
+                        "type":"string",
+                        "default":"fixed",
+                        "enum": [
+                            "line",
+                            "block",
+                            "indent",
+                            "fixed"
+                        ],
+                        "description": "Highlight range",
+                        "markdownEnumDescriptions": [
+                            "Only highlight current line",
+                            "Highlight code block with token",
+                            "Highlight lines by same indent with current line",
+                            "Fixed highlight `#focus.highlightLines#` lines"
+                        ]
+                    },
+                    "focus.highlightLines":{
+                        "type":"integer",
+                        "default":5,
+                        "markdownDescription":"This configuration only useful when `#focus.highlightRange#` set to *fixed* .this mean how many lines will be highlight."
+                    }
+                }
+            }
+        ]
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "pretest": "npm run lint",
+        "test": "node ./test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.46.0",
+        "@types/glob": "^7.1.1",
+        "@types/mocha": "^7.0.2",
+        "@types/node": "^13.11.0",
+        "eslint": "^6.8.0",
+        "glob": "^7.1.6",
+        "mocha": "^7.1.2",
+        "typescript": "^3.8.3",
+        "vscode-test": "^1.3.0"
+    }
 }
