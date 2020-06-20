@@ -17,7 +17,7 @@ Highlight code lines/code blcok what you are focus on.
 ![Usage](images/usage01.png)
 
 
-![Usage](images/usage02.gif)
+![Usage](images/usage02.png)
 
 
 ## Configuration
@@ -26,7 +26,7 @@ Set the level by json or UI:
 
 ``` json
 "focus.highlightRange":"line"   //Highlight current line
-"focus.highlightRange":"block"  //Highlight code block which range by *{* and *}*
+"focus.highlightRange":"block"  //Highlight code block which range by `{` and `}`
 "focus.highlightRange":"indent" //Highlight lines by indent
 "focus.highlightRange":"fixed"  //Highlight line counts by configuration
 ```
