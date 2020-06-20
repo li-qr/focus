@@ -3,8 +3,14 @@
     "displayName": "Focus",
     "description": "Help you focus the code.Highlight the lines/code block/indent you are editing.",
     "version": "0.1.0",
-    "publisher": "mzzw",
+    "publisher": "Quan Li",
+    "author": {
+        "email": "lee@leezw.net",
+        "name": "Quan Li",
+        "url": "https://leezw.net"
+    },
     "icon":"images/logo.png",
+    "license": "SEE LICENSE IN LICENSE",
     "engines": {
         "vscode": "^1.35.0"
     },
