@@ -1,9 +1,9 @@
 # Change Log
 
-All notable changes to the "focus" extension will be documented in this file.
+## 0.2.0 (2020-06-22)
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+* Fix statusbar item not update immediately.
 
-## [Unreleased]
+## 0.1.0 (2020-06-21)
 
 - Initial release

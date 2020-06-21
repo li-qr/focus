@@ -1,5 +1,7 @@
 # Focus
 
+[![Marketplace Version](https://vsmarketplacebadge.apphb.com/version/QuanLi.focus.svg)](https://marketplace.visualstudio.com/items?itemName=QuanLi.focus) [![Installs](https://vsmarketplacebadge.apphb.com/installs/QuanLi.focus.svg)](https://marketplace.visualstudio.com/items?itemName=QuanLi.focus) [![Rating](https://vsmarketplacebadge.apphb.com/rating/QuanLi.focus.svg)](https://marketplace.visualstudio.com/items?itemName=QuanLi.focus)
+
 Highlight code lines/code blcok what you are focus on.
 
 ## Features
@@ -42,6 +44,10 @@ Configurate opacity:
 ``` json
 "focus.opacity":0.7 //number between (0,1)
 ```
+
+
+## Change Log
+See Change Log [here](CHANGELOG.md)
 
 ## Issues
 Submit the [issues](https://github.com/mzzw/focus/issues) if you find any bug or have any suggestion.

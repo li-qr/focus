@@ -37,11 +37,13 @@ function activate(context) {
                 opacity: vscode.workspace.getConfiguration().get(CONF_OPACITY)
             });
         }
-        (listener.affectsConfiguration(CONF_OPACITY)
+        if((listener.affectsConfiguration(CONF_OPACITY)
             || listener.affectsConfiguration(CONF_HIGHLIGHT_LINES)
             || listener.affectsConfiguration(CONF_HIGHLIGHT_RANGE))
-            && vscode.window.activeTextEditor
-            && triggerUpdateDecorations();
+            && vscode.window.activeTextEditor){
+            triggerUpdateDecorations();
+            updateStatusBarItem();
+            }
     });
 
     let timeout = null;
