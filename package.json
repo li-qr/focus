@@ -2,7 +2,7 @@
     "name": "focus",
     "displayName": "Focus",
     "description": "Help you focus the code.Highlight the lines/code block/indent you are editing.",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "publisher": "QuanLi",
     "author": {
         "email": "lee@leezw.net",
@@ -57,6 +57,10 @@
                 "title": "Focus: Switch To Fixed Level"
             },
             {
+                "command": "focus.turnOff",
+                "title": "Focus: Turn Off"
+            },
+            {
                 "command": "focus.toggleLevel",
                 "title": "Focus: Toggle Level"
             }
@@ -84,14 +88,16 @@
                             "line",
                             "block",
                             "indent",
-                            "fixed"
+                            "fixed",
+                            "none"
                         ],
                         "description": "Highlight range",
                         "markdownEnumDescriptions": [
                             "Only highlight current line",
                             "Highlight code block with token",
                             "Highlight lines by same indent with current line",
-                            "Fixed highlight `#focus.highlightLines#` lines"
+                            "Fixed highlight `#focus.highlightLines#` lines",
+                            "Not highlight any code"
                         ]
                     },
                     "focus.highlightLines":{

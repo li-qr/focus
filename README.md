@@ -4,6 +4,8 @@
 
 Highlight code lines/code blcok what you are focus on.
 
+![Usage](images/usage01.png)
+
 ## Features
 
 * Highlight current line.
@@ -15,9 +17,6 @@ Highlight code lines/code blcok what you are focus on.
 
 * Just install it.
 * We provide commands and statusbar button that help you quickly change level.
-
-![Usage](images/usage01.png)
-
 
 ![Usage](images/usage02.png)
 
@@ -45,6 +44,7 @@ Configurate opacity:
 "focus.opacity":0.7 //number between (0,1)
 ```
 
+![Usage](images/usage03.png)
 
 ## Change Log
 See Change Log [here](CHANGELOG.md)

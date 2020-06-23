@@ -1,5 +1,4 @@
 const vscode = require('vscode');
-const { POINT_CONVERSION_COMPRESSED } = require('constants');
 
 
 const CONF_OPACITY = "focus.opacity";
@@ -8,13 +7,15 @@ const CONF_HIGHLIGHT_RANGE_LINE = "line";
 const CONF_HIGHLIGHT_RANGE_BLOCK = "block";
 const CONF_HIGHLIGHT_RANGE_INDENT = "indent";
 const CONF_HIGHLIGHT_RANGE_FIXED = "fixed";
+const CONF_HIGHLIGHT_RANGE_NONE = "none";
 const CONF_HIGHLIGHT_LINES = "focus.highlightLines";
 
 const CMD_TO_LINE = "focus.swtichToLineLevel";
 const CMD_TO_FIXED = "focus.switchToFixedLevel";
 const CMD_TO_INDENT = "focus.switchToIndentLevel";
 const CMD_TO_BLOCK = "focus.switchToBlockLevel";
-const CMD_TOGGLE = "focus.focus.toggleLevel";
+const CMD_TURN_OFF = "focus.turnOff";
+const CMD_TOGGLE = "focus.toggleLevel";
 
 function activate(context) {
 
@@ -76,8 +77,16 @@ function activate(context) {
                 let lineCount = vscode.workspace.getConfiguration().get(CONF_HIGHLIGHT_LINES) / 2;
                 fixedDecoration(lineCount);
                 break;
+            case CONF_HIGHLIGHT_RANGE_NONE:
+                noneDecoration();
+                break;
         };
         activeEditor.setDecorations(baseDecoration, range);
+
+        function noneDecoration(){
+            range.push(new vscode.Range(new vscode.Position(0,0),
+            new vscode.Position(0,0)));
+        }
 
         function rangeDecoration() {
             const TOKEN_BASE = 1;
@@ -186,6 +195,9 @@ function activate(context) {
     vscode.commands.registerCommand(CMD_TO_FIXED, () => {
         vscode.workspace.getConfiguration().update(CONF_HIGHLIGHT_RANGE, CONF_HIGHLIGHT_RANGE_FIXED, vscode.ConfigurationTarget.Global);
     });
+    vscode.commands.registerCommand(CMD_TURN_OFF,()=>{
+        vscode.workspace.getConfiguration().update(CONF_HIGHLIGHT_RANGE,CONF_HIGHLIGHT_RANGE_NONE,vscode.ConfigurationTarget.Global);
+    });
     vscode.commands.registerCommand(CMD_TOGGLE, () => {
         switch (vscode.workspace.getConfiguration().get(CONF_HIGHLIGHT_RANGE)) {
             case CONF_HIGHLIGHT_RANGE_BLOCK:
@@ -198,6 +210,9 @@ function activate(context) {
                 vscode.commands.executeCommand(CMD_TO_INDENT);
                 break;
             case CONF_HIGHLIGHT_RANGE_INDENT:
+                vscode.commands.executeCommand(CMD_TURN_OFF);
+                break;
+            case CONF_HIGHLIGHT_RANGE_NONE:
                 vscode.commands.executeCommand(CMD_TO_BLOCK);
                 break;
         };
@@ -225,6 +240,9 @@ function activate(context) {
                 break;
             case CONF_HIGHLIGHT_RANGE_INDENT:
                 statusItem.text = `Focus:$(tree-filter-on-type-on)`;
+                break;
+            case CONF_HIGHLIGHT_RANGE_NONE:
+                statusItem.text = `Focus:$(stop)`;
                 break;
         }
         statusItem.show();
